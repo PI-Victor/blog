@@ -6,14 +6,11 @@
         <v-icon>mdi-heart</v-icon>by Victor Palade.
       </span>
       <span>
-        Distributed under
-        <a href="https://spdx.org/licenses/CC-BY-4.0.html">CC-BY-4.0</a>
+        &copy; {{ new Date().getFullYear() }}
+        <a
+          href="https://spdx.org/licenses/CC-BY-4.0.html"
+        >CC-BY-4.0</a>
       </span>
-      - {{ new Date().getFullYear() }}.
     </v-col>
   </v-footer>
 </template>
-
-<script>
-export default {};
-</script>
