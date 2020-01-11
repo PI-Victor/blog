@@ -1,19 +1,17 @@
 <template>
   <v-container>
-    <Preview />
-    <Footer />
+    <v-card flat></v-card>
   </v-container>
 </template>
 
 <script>
-import Footer from "@/components/Footer";
-import Preview from "@/components/Preview";
-
 export default {
   name: "home",
-  components: {
-    Preview,
-    Footer
+  data: () => ({}),
+  computed: {
+    posts() {
+      return [];
+    }
   }
 };
 </script>
