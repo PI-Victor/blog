@@ -2,7 +2,6 @@
   <v-card>
     <v-toolbar
       extended
-      color="white"
       flat
       tile
       dark
@@ -11,16 +10,17 @@
       src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
     >
       <v-container>
-        <v-row justify="start" align="center">
-          <v-col cols="1">
-            <v-avatar>
-              <img src="https://avatars1.githubusercontent.com/u/6294120?s=460&v=4" alt="Victor" />
-            </v-avatar>
-          </v-col>
-          <v-col cols="2">
-            <v-toolbar-title>Victor's page</v-toolbar-title>
-          </v-col>
-        </v-row>
+        <v-list-item>
+          <v-list-item-avatar>
+            <img src="https://avatars1.githubusercontent.com/u/6294120?s=460&v=4" alt="Victor" />
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>
+              <div class="customText">Victor Palade</div>
+              <div class="customText">Software Engineer</div>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-container>
       <v-spacer></v-spacer>
       <v-btn class="mx-1" fab small href="https://github.com/pi-victor">
@@ -47,3 +47,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.customText {
+  font-size: 17px;
+}
+</style>
