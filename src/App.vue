@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <v-content data-e2e="content" color="navy">
-      <Navigation data-e2e="navigation" />
-      <router-view></router-view>
+    <Navigation data-e2e="navigation" :scrollArea="this.$refs" />
+    <v-content data-e2e="content">
+      <v-sheet id="areaContainer" ref="areaContainer" class="overflow-y-auto" height="800px">
+        <router-view></router-view>
+      </v-sheet>
       <Footer />
     </v-content>
   </v-app>
@@ -17,17 +19,6 @@ export default {
   components: {
     Navigation,
     Footer
-  },
-  data: () => ({
-    //
-  }),
-  theme: {
-    dark: true,
-    themes: {
-      dark: {
-        background: "black"
-      }
-    }
   },
   watch: {
     $route: {

@@ -1,9 +1,9 @@
 <template>
-  <v-footer padless absolute class="center-text">
+  <v-footer padless absolute class="center-text white">
     <v-col class="text-center">
       <span>
-        Made with
-        <v-icon>mdi-heart</v-icon>by Victor Palade.
+        Made in
+        <v-icon color="red">mdi-hospital-box</v-icon>by Victor Palade.
       </span>
       <span>
         &copy; {{ new Date().getFullYear() }}
