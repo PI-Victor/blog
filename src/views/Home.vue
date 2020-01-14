@@ -11,7 +11,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Preview from "@/components/Preview.vue";
+import Preview from "@/components/Preview";
 
 export default {
   name: "home",

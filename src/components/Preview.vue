@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title>{{ post.meta.title }}</v-card-title>
       <v-card-text>
-        "{{ previewText(post.content) }}"
+        {{ previewText(post.content) }}
         ...
         <a to="/post">[Continue reading]</a>
       </v-card-text>
