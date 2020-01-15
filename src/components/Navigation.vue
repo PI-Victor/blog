@@ -1,6 +1,6 @@
 <template>
   <v-card d-flex>
-    <v-app-bar app color="#282828">
+    <v-app-bar app color="#282828" flat tile>
       <v-list-item>
         <v-list-item-avatar size="65px">
           <img

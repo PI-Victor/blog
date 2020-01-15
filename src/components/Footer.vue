@@ -8,7 +8,9 @@
         </span>
         <span>
           &copy; {{ new Date().getFullYear() }}
-          <a href="https://spdx.org/licenses/CC-BY-4.0.html">CC-BY-4.0</a>
+          <a id="license-link" href="https://spdx.org/licenses/CC-BY-4.0.html"
+            >CC-BY-4.0</a
+          >
         </span>
       </div>
     </v-col>
@@ -16,11 +18,12 @@
 </template>
 
 <style scoped>
-.footerText {
-  font-size: 13px;
-  color: #928374;
-}
 #footer {
+  color: #83a598;
   background-color: #282828;
+}
+
+#license-link {
+  color: #8ec07c;
 }
 </style>

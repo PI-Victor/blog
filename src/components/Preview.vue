@@ -1,20 +1,21 @@
 <template>
   <v-container fluid id="previewContainer">
     <v-card id="preview">
-      <v-card-title id="cardTitle">{{ post.meta.title }}</v-card-title>
+      <router-link :to="{ name: 'posts', params: { post: post } }">
+        <v-card-title id="cardTitle">{{ post.meta.title }}</v-card-title>
+      </router-link>
       <v-card-text id="previewText">
         {{ previewText(post.content) }}
-        ...
-        <router-link to="/posts">{{ post.path }}</router-link>
+        <router-link
+          :to="{ name: 'posts', params: { post: post } }"
+          id="excerpt"
+        >
+          [...]
+        </router-link>
       </v-card-text>
       <v-card-actions>
-        <v-chip
-          icon
-          id="tags"
-          v-for="tag in post.meta.tags"
-          :key="tag"
-          :to="{ name: post }"
-          ><v-icon color="#d5cda1" size="17px" left>mdi-tag</v-icon>
+        <v-chip icon link id="tags" v-for="tag in post.meta.tags" :key="tag"
+          ><v-icon color="#d65d0e" size="17px" left>mdi-label</v-icon>
           {{ tag }}</v-chip
         >
       </v-card-actions>
@@ -26,7 +27,7 @@
 export default {
   props: ["post"],
   methods: {
-    previewText: post => post.slice(0, 300)
+    previewText: post => post.slice(0, 180)
   }
 };
 </script>
@@ -36,7 +37,7 @@ export default {
 }
 #tags {
   font-size: 13px;
-  background-color: #1d2021;
+  background-color: #3c3836;
   color: #d3869b;
 }
 #previewText {
@@ -46,7 +47,14 @@ export default {
   background-color: #282828;
   max-width: 600px;
 }
+#excerpt:link {
+  color: #8ec07c;
+}
+
 #cardTitle {
   color: #fabd2f;
+}
+a {
+  text-decoration: none;
 }
 </style>

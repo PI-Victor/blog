@@ -26,7 +26,7 @@ const state = {
     },
     {
       meta: {
-        title: "Rust async",
+        title: "Devops as a career",
         tags: ["rust", "async"]
       },
       content:
@@ -34,7 +34,7 @@ const state = {
     },
     {
       meta: {
-        title: "Developing front-end apps with Vue",
+        title: "Haskell learning difficulty",
         tags: ["javascript", "frontend", "vue"]
       },
       content:
@@ -42,7 +42,7 @@ const state = {
     },
     {
       meta: {
-        title: "Deploying to kubernetes",
+        title: "Sysadmin stories",
         tags: ["kubernetes", "systems-engineering"]
       },
       content:
