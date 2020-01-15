@@ -5,7 +5,6 @@
       color="#5C6BC0"
       prominent
       src="https://picsum.photos/1920/1080?random"
-      fade-img-on-scroll
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -14,7 +13,7 @@
         ></v-img>
       </template>
       <v-list-item>
-        <v-list-item-avatar>
+        <v-list-item-avatar size="65px">
           <img
             src="https://avatars1.githubusercontent.com/u/6294120?s=460&v=4"
             alt="Victor"
