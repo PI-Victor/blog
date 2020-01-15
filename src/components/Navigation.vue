@@ -2,12 +2,10 @@
   <v-card class="overflow-hidden">
     <v-app-bar
       dark
-      shrink-on-scroll
       color="#5C6BC0"
       prominent
       src="https://picsum.photos/1920/1080?random"
       fade-img-on-scroll
-      :scroll-target="this.items.areaContainer"
     >
       <template v-slot:img="{ props }">
         <v-img v-bind="props" gradient="to top right, rgba(102,115,201,.7), rgba(38,32,90,.7)"></v-img>
