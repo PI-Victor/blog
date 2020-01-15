@@ -19,27 +19,27 @@ export default new VueRouter({
       name: "home",
       meta: { title: "Home", icon: "mdi-home" },
       component: Home,
-      navigation: true,
+      navigation: true
     },
     {
       path: "/about",
       name: "about",
       meta: { title: "About", icon: "mdi-information-variant" },
       component: About,
-      navigation: true,
+      navigation: true
     },
     {
       path: "/projects",
       name: "projects",
-      meta: {title: "Projects", icon: "mdi-work"},
+      meta: { title: "Projects", icon: "mdi-work" },
       component: Projects,
-      navigation: true,
+      navigation: true
     },
     {
       path: "/posts",
       name: "posts",
       meta: { title: "post" },
-      component: Post,
+      component: Post
     }
   ]
 });

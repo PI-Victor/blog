@@ -2,7 +2,12 @@
   <v-app>
     <Navigation data-e2e="navigation" :scrollArea="this.$refs" />
     <v-content data-e2e="content">
-      <v-sheet id="areaContainer" ref="areaContainer" class="overflow-y-auto" height="800px">
+      <v-sheet
+        id="areaContainer"
+        ref="areaContainer"
+        class="overflow-y-auto"
+        height="800px"
+      >
         <router-view></router-view>
       </v-sheet>
       <Footer />

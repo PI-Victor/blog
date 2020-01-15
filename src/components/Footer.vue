@@ -7,9 +7,7 @@
       </span>
       <span>
         &copy; {{ new Date().getFullYear() }}
-        <a
-          href="https://spdx.org/licenses/CC-BY-4.0.html"
-        >CC-BY-4.0</a>
+        <a href="https://spdx.org/licenses/CC-BY-4.0.html">CC-BY-4.0</a>
       </span>
     </v-col>
   </v-footer>
