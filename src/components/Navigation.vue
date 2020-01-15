@@ -1,17 +1,6 @@
 <template>
-  <v-card class="overflow-hidden">
-    <v-app-bar
-      dark
-      color="#5C6BC0"
-      prominent
-      src="https://picsum.photos/1920/1080?random"
-    >
-      <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(102,115,201,.7), rgba(38,32,90,.7)"
-        ></v-img>
-      </template>
+  <v-card d-flex>
+    <v-app-bar app color="#282828">
       <v-list-item>
         <v-list-item-avatar size="65px">
           <img
@@ -29,24 +18,48 @@
       <v-spacer></v-spacer>
       <v-container>
         <v-row justify="end">
-          <v-btn class="mx-1" fab small href="https://github.com/pi-victor">
-            <v-icon dark>mdi-github-circle</v-icon>
-          </v-btn>
-          <v-btn
-            class="mx-1"
-            fab
-            small
-            href="https://stackoverflow.com/story/pivictor"
-          >
-            <v-icon dark>mdi-stack-overflow</v-icon>
-          </v-btn>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                class="mx-1"
+                fab
+                dark
+                small
+                v-on="on"
+                href="https://github.com/pi-victor"
+              >
+                <v-icon>mdi-github-circle</v-icon>
+              </v-btn>
+            </template>
+            <span>GitHub</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                class="mx-1"
+                v-on="on"
+                fab
+                dark
+                small
+                href="https://stackoverflow.com/story/pivictor"
+              >
+                <v-icon>mdi-stack-overflow</v-icon>
+              </v-btn>
+            </template>
+            <span>StackOverflow</span>
+          </v-tooltip>
         </v-row>
       </v-container>
       <template v-slot:extension>
-        <v-tabs centered dark background-color="transparent">
-          <v-tab v-for="(item, index) in items" :key="index" :to="item.path">{{
-            item.meta.title
-          }}</v-tab>
+        <v-tabs centered background-color="#282828" dark>
+          <v-tab
+            id="tabTabs"
+            v-for="(item, index) in items"
+            :key="index"
+            :to="item.path"
+            ><v-icon left> {{ item.meta.icon }}</v-icon
+            >{{ item.meta.title }}</v-tab
+          >
         </v-tabs>
       </template>
     </v-app-bar>
@@ -70,5 +83,10 @@ export default {
 <style scoped>
 .customText {
   font-size: 17px;
+  color: #d5cda1;
+}
+
+#tabTabs {
+  color: #d3869b;
 }
 </style>

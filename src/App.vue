@@ -1,10 +1,8 @@
 <template>
-  <v-app>
-    <Navigation data-e2e="navigation" :scrollArea="this.$refs" />
-    <v-content data-e2e="content">
-      <v-sheet class="overflow-y-auto" height="800px">
-        <router-view></router-view>
-      </v-sheet>
+  <v-app id="inspire">
+    <Navigation data-e2e="navigation" />
+    <v-content data-e2e="content" id="mainContent" d-flex>
+      <router-view></router-view>
       <Footer />
     </v-content>
   </v-app>
@@ -30,3 +28,17 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#content {
+  background-color: #282828;
+  width: 500px;
+}
+#mainContent {
+  background-color: #282828;
+}
+
+#inspire {
+  background-color: #282828;
+}
+</style>

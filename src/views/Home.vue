@@ -1,11 +1,9 @@
 <template>
   <v-container>
-    <v-card flat>
-      <template v-for="post in nextPosts()">
-        <Preview :post="post" v-bind:key="post.name" />
-      </template>
-      <v-pagination></v-pagination>
-    </v-card>
+    <template v-for="post in nextPosts()">
+      <Preview :post="post" v-bind:key="post.name" />
+    </template>
+    <v-pagination></v-pagination>
   </v-container>
 </template>
 
@@ -28,3 +26,5 @@ export default {
   }
 };
 </script>
+
+<style scoped></style>

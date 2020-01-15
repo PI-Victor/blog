@@ -22,17 +22,17 @@ export default new VueRouter({
       navigation: true
     },
     {
+      path: "/projects",
+      name: "projects",
+      meta: { title: "Projects", icon: "mdi-worker" },
+      component: Projects,
+      navigation: true
+    },
+    {
       path: "/about",
       name: "about",
       meta: { title: "About", icon: "mdi-information-variant" },
       component: About,
-      navigation: true
-    },
-    {
-      path: "/projects",
-      name: "projects",
-      meta: { title: "Projects", icon: "mdi-work" },
-      component: Projects,
       navigation: true
     },
     {
