@@ -51,7 +51,7 @@
         </v-row>
       </v-container>
       <template v-slot:extension>
-        <v-tabs centered background-color="#282828" dark>
+        <v-tabs slider-color="#8ec07c" centered background-color="#282828" dark>
           <v-tab
             id="tabTabs"
             v-for="(item, index) in items"
@@ -73,9 +73,6 @@ export default {
     items() {
       return this.$router.options.routes.filter(route => route.navigation);
     }
-  },
-  mounted() {
-    //console.log(this.scrollArea.areaContainer);
   }
 };
 </script>

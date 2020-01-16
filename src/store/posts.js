@@ -2,14 +2,15 @@ const state = {
   posts: [
     {
       meta: {
+        id: 1,
         title: "Rust async",
         tags: ["rust", "async"]
       },
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse odio est, accumsan vitae molestie eu, dignissim at enim. Vestibulum rutrum laoreet metus in ornare. Nulla facilisi. Ut lobortis, lacus nec iaculis vulputate, est lectus mattis lectus, at efficitur mauris arcu ac ante. In non arcu vitae augue suscipit placerat non at erat. Duis efficitur nulla libero. Nulla et justo justo. Fusce bibendum rutrum sodales. Aliquam tellus tortor, facilisis at magna id, volutpat vulputate libero. Duis nec dui orci. In pellentesque dolor ac lorem dapibus pharetra. Mauris bibendum massa dui, vel ultrices nisi interdum id. Duis metus mi, malesuada nec mauris non, tempor consequat massa. Cras eu porttitor ligula. Suspendisse ultricies, leo ut fringilla porta, tortor enim posuere lectus, quis dapibus quam sem vitae magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. "
+      content: "#### Post"
     },
     {
       meta: {
+        id: 2,
         title: "Developing front-end apps with Vue",
         tags: ["javascript", "frontend", "vue"]
       },
@@ -18,6 +19,7 @@ const state = {
     },
     {
       meta: {
+        id: 3,
         title: "Deploying to kubernetes",
         tags: ["kubernetes", "systems-engineering"]
       },
@@ -26,6 +28,7 @@ const state = {
     },
     {
       meta: {
+        id: 4,
         title: "Devops as a career",
         tags: ["rust", "async"]
       },
@@ -34,6 +37,7 @@ const state = {
     },
     {
       meta: {
+        id: 5,
         title: "Haskell learning difficulty",
         tags: ["javascript", "frontend", "vue"]
       },
@@ -42,6 +46,7 @@ const state = {
     },
     {
       meta: {
+        id: 6,
         title: "Sysadmin stories",
         tags: ["kubernetes", "systems-engineering"]
       },
@@ -55,7 +60,14 @@ const getters = {
   posts: state => state.posts
 };
 
-const actions = {};
+const actions = {
+  filterPost: ({ _ }, postId) =>
+    state.posts
+      .filter(post => post.meta.id === postId)
+      .reduce(post => {
+        return post;
+      })
+};
 
 const mutations = {};
 

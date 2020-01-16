@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
-import Post from "@/views/Posts.vue";
+import Post from "@/views/Post.vue";
 import Projects from "@/views/Projects";
 
 Vue.use(VueRouter);
@@ -36,9 +36,9 @@ export default new VueRouter({
       navigation: true
     },
     {
-      path: "/posts",
+      path: "/posts/:postId",
       name: "posts",
-      meta: { title: "post" },
+      meta: { title: "Post" },
       component: Post
     }
   ]
