@@ -61,12 +61,8 @@ const getters = {
 };
 
 const actions = {
-  filterPost: ({ _ }, postId) =>
-    state.posts
-      .filter(post => post.meta.id === postId)
-      .reduce(post => {
-        return post;
-      })
+  filterPost: ({ postId }) =>
+    state.posts.filter(post => post.meta.id === postId).reduce(post => post)
 };
 
 const mutations = {};

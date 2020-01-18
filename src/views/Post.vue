@@ -20,7 +20,6 @@
 <script>
 import marked from "marked";
 import { mapActions } from "vuex";
-import state from "@/state/state";
 
 export default {
   data: () => ({
