@@ -61,7 +61,7 @@ const getters = {
 };
 
 const actions = {
-  filterPost: ({ postId }) =>
+  filterPost: ({ dispatch }, postId) =>
     state.posts.filter(post => post.meta.id === postId).reduce(post => post)
 };
 
