@@ -1,5 +1,5 @@
 import { postsDate } from "@/data/github";
-import { getPostsData, getPosts } from "@/query/posts";
+import { getPosts } from "@/query/posts";
 
 const state = {
   posts: []

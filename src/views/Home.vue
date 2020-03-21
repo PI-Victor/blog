@@ -39,7 +39,7 @@ export default {
     }
   },
   beforeMount() {
-    this.getPosts().then(console.log(this.posts));
+    this.getPosts();
   }
 };
 </script>
