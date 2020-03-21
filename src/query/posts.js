@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import Axios from "axios";
 
 const baseUri = "https://raw.githubusercontent.com/PI-Victor/blog/master/posts";
