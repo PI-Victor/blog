@@ -1,9 +1,7 @@
 <template>
   <v-container>
     <v-card>
-      <v-card-title>
-        {{ title }}
-      </v-card-title>
+      <v-card-title>{{ title }}</v-card-title>
       <v-card-text>
         <div v-html="renderContent()"></div>
       </v-card-text>
@@ -36,8 +34,8 @@ export default {
     }
   },
   beforeMount() {
-    const postId = parseInt(this.$route.params.postId);
-    this.filterPost(postId).then(post => {
+    const postDate = this.$route.params.postDate;
+    this.filterPost(postDate).then(post => {
       this.content = post.content;
       this.title = post.meta.title;
       this.tags = post.meta.tags;

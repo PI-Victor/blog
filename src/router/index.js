@@ -8,6 +8,7 @@ import Projects from "@/views/Projects";
 Vue.use(VueRouter);
 
 export default new VueRouter({
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -36,7 +37,7 @@ export default new VueRouter({
       navigation: true
     },
     {
-      path: "/posts/:postId",
+      path: "/posts/:postDate",
       name: "posts",
       meta: { title: "Post" },
       component: Post

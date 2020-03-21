@@ -8,9 +8,10 @@
         </span>
         <span>
           &copy; {{ new Date().getFullYear() }}
-          <a id="license-link" href="https://spdx.org/licenses/CC-BY-4.0.html"
-            >CC-BY-4.0</a
-          >
+          <a
+            id="license-link"
+            href="https://spdx.org/licenses/Apache-2.0.html"
+          >Apache-2.0</a>
         </span>
       </div>
     </v-col>

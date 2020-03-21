@@ -1,5 +1,8 @@
-const state = {
+import { postsDate } from "@/data/github";
+import { getPostsData, getPosts } from "@/query/posts";
 
+const state = {
+  posts: []
 };
 
 const getters = {
@@ -7,11 +10,29 @@ const getters = {
 };
 
 const actions = {
-  filterPost: ({ dispatch }, postId) =>
-    state.posts.filter(post => post.meta.id === postId).reduce(post => post)
+  filterPost: async (_, postDate) =>
+    state.posts
+      .filter(post => post.meta.date === postDate)
+      .reduce(post => post),
+  getPosts: async ({ commit }) => {
+    try {
+      const result = await getPosts(postsDate);
+      commit("setPosts", result);
+    } catch (error) {
+      err => err;
+    }
+  }
 };
 
-const mutations = {};
+const mutations = {
+  setPosts(state, payload) {
+    Promise.all(payload).then(posts => {
+      posts.map(post => {
+        state.posts = [].concat(post);
+      });
+    });
+  }
+};
 
 export default {
   namespaced: true,

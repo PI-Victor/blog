@@ -2,23 +2,15 @@
   <v-container fluid id="previewContainer">
     <v-card id="preview">
       <v-card-title>
-        <router-link
-          :to="{
-            name: 'posts',
-            params: { postId: post.meta.id }
-          }"
-        >
+        <router-link :to="{ name: 'posts', params: { postDate: post.meta.date } }">
           <div id="cardTitle">{{ post.meta.title }}</div>
         </router-link>
       </v-card-title>
-
       <v-card-text id="previewText" v-html="previewText(post.content)">
         <router-link
-          :to="{ name: 'posts', params: { postId: post.meta.id } }"
+          :to="{ name: 'posts', params: { postDate: post.meta.date } }"
           id="excerpt"
-        >
-          [...]
-        </router-link>
+        >[...]</router-link>
       </v-card-text>
       <v-card-actions>
         <v-chip icon link id="tags" v-for="tag in post.meta.tags" :key="tag">
@@ -36,7 +28,10 @@ import marked from "marked";
 export default {
   props: ["post"],
   methods: {
-    previewText: post => marked(post.slice(0, 180))
+    previewText: content => {
+      console.log(content);
+      //marked(content.slice(0, 180));
+    }
   }
 };
 </script>
