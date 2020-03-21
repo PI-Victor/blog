@@ -1,5 +1,3 @@
-## First Post
-
 I was finally able to make the first post on this blog using github as a
 filesystem for storing the posts in md format.
 
@@ -52,6 +50,8 @@ const myPost: Post {
     date: 1584828965877
 }
 ```
+
+Javascript
 
 ```javascript
 const myFn = async post => (post.meta !== null ? post.meta : {});
