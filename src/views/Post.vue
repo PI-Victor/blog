@@ -16,30 +16,35 @@
 </template>
 
 <script>
-import marked from "marked";
-import { mapActions } from "vuex";
+  import marked from "marked";
+  import { mapActions } from "vuex";
+  import highlightjs from "highlight.js";
 
-export default {
-  data: () => ({
-    post: {},
-    title: "",
-    content: "",
-    tags: []
-  }),
-  computed: {},
-  methods: {
-    ...mapActions("posts", ["filterPost"]),
-    renderContent() {
-      return marked(this.content);
+  export default {
+    data: () => ({
+      post: {},
+      title: "",
+      content: "",
+      tags: []
+    }),
+    computed: {},
+    methods: {
+      ...mapActions("posts", ["filterPost"]),
+      renderContent() {
+        marked.setOptions({
+          highlight: (code, language) =>
+            highlightjs.highlight(language, code).value
+        });
+        return marked(this.content);
+      }
+    },
+    beforeMount() {
+      const postDate = this.$route.params.postDate;
+      this.filterPost(postDate).then(post => {
+        this.content = post.content;
+        this.title = post.meta.title;
+        this.tags = post.meta.tags;
+      });
     }
-  },
-  beforeMount() {
-    const postDate = this.$route.params.postDate;
-    this.filterPost(postDate).then(post => {
-      this.content = post.content;
-      this.title = post.meta.title;
-      this.tags = post.meta.tags;
-    });
-  }
-};
+  };
 </script>
