@@ -28,10 +28,7 @@ import marked from "marked";
 export default {
   props: ["post"],
   methods: {
-    previewText: content => {
-      console.log(content);
-      //marked(content.slice(0, 180));
-    }
+    previewText: content => marked(content.slice(0, 180))
   }
 };
 </script>
