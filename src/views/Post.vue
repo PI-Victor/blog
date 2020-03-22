@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <v-card>
-      <v-card-title>{{ title }}</v-card-title>
+    <v-card id="post">
+      <v-card-title id="title">{{ title }}</v-card-title>
       <v-card-text>
-        <div v-html="renderContent()"></div>
+        <div class="content" v-html="renderContent()"></div>
       </v-card-text>
       <v-card-actions>
         <v-chip icon link id="tags" v-for="tag in tags" :key="tag">
@@ -16,9 +16,10 @@
 </template>
 
 <script>
-  import marked from "marked";
+  import MarkdownIt from "markdown-it";
   import { mapActions } from "vuex";
   import highlightjs from "highlight.js";
+  import emoji from "markdown-it-emoji";
 
   export default {
     data: () => ({
@@ -31,11 +32,12 @@
     methods: {
       ...mapActions("posts", ["filterPost"]),
       renderContent() {
-        marked.setOptions({
+        const md = new MarkdownIt({
           highlight: (code, language) =>
             highlightjs.highlight(language, code).value
         });
-        return marked(this.content);
+        md.use(emoji);
+        return md.render(this.content);
       }
     },
     beforeMount() {
@@ -48,3 +50,22 @@
     }
   };
 </script>
+<style>
+  #post {
+    background-color: #1d2021;
+  }
+  .content {
+    color: #d5cda1;
+  }
+  #title {
+    color: #fabd2f;
+  }
+  #tags {
+    font-size: 13px;
+    background-color: #3c3836;
+    color: #d3869b;
+  }
+  .content code {
+    background-color: #1d1d11;
+  }
+</style>

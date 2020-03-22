@@ -2,7 +2,9 @@
   <v-container fluid id="previewContainer">
     <v-card id="preview">
       <v-card-title>
-        <router-link :to="{ name: 'posts', params: { postDate: post.meta.date } }">
+        <router-link
+          :to="{ name: 'posts', params: { postDate: post.meta.date } }"
+        >
           <div id="cardTitle">{{ post.meta.title }}</div>
         </router-link>
       </v-card-title>
@@ -10,7 +12,9 @@
         <router-link
           :to="{ name: 'posts', params: { postDate: post.meta.date } }"
           id="excerpt"
-        >[...]</router-link>
+        >
+          More...
+        </router-link>
       </v-card-text>
       <v-card-actions>
         <v-chip icon link id="tags" v-for="tag in post.meta.tags" :key="tag">
@@ -23,43 +27,48 @@
 </template>
 
 <script>
-import marked from "marked";
+  import MarkdownIt from "markdown-it";
+  import emoji from "markdown-it-emoji";
 
-export default {
-  props: ["post"],
-  methods: {
-    previewText: content => marked(content.slice(0, 180))
-  }
-};
+  export default {
+    props: ["post"],
+    methods: {
+      previewText: content => {
+        const md = new MarkdownIt();
+        md.use(emoji);
+        return md.render(content.slice(0, 180));
+      }
+    }
+  };
 </script>
 <style scoped>
-#preview {
-  background-color: #1d2021;
-}
+  #preview {
+    background-color: #1d2021;
+  }
 
-#tags {
-  font-size: 13px;
-  background-color: #3c3836;
-  color: #d3869b;
-}
+  #tags {
+    font-size: 13px;
+    background-color: #3c3836;
+    color: #d3869b;
+  }
 
-#previewText {
-  color: #d5cda1;
-}
+  #previewText {
+    color: #d5cda1;
+  }
 
-#previewContainer {
-  background-color: #282828;
-  max-width: 600px;
-}
+  #previewContainer {
+    background-color: #282828;
+    max-width: 600px;
+  }
 
-#excerpt:link {
-  color: #8ec07c;
-}
+  #excerpt:link {
+    color: #8ec07c;
+  }
 
-#cardTitle {
-  color: #fabd2f;
-}
-a {
-  text-decoration: none;
-}
+  #cardTitle {
+    color: #fabd2f;
+  }
+  a {
+    text-decoration: none;
+  }
 </style>

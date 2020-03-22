@@ -60,9 +60,13 @@ const myFn = async post => (post.meta !== null ? post.meta : {});
 Python 3.x
 
 ```python
-async get_my_post_content() {
+async get_my_post_content():
     return "post"
-}
 ```
+
+[link](https://victor.cloudflavor.io) to something.
+
+embed an image  
+![a random image](https://i.picsum.photos/id/573/200/200.jpg "An image")
 
 Tada!
