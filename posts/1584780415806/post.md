@@ -2,14 +2,15 @@ I was finally able to make the first post on this blog using github as a
 filesystem for storing the posts in md format.
 
 The first idea was to use a rust written api, but since i cancelled my
-of having a oVirt infrastructure due to the recent developments in the
-world economy, i gave up on that and opted for free and cheap storage.
+oVirt infrastructure project due to the recent developments in the
+world economy, i gave up on that and opted instead for free and cheap
+storage.
 
 Will write more, since this is more of a test post than anything else,
 pending some cleanup to have this blog semi-ready, just like every other
 project i do. :D
 
-here are some code snipets, that i am interested in, to test the syntax
+Here are some code snipets, that i am interested in, to test the syntax
 highlighting:
 
 bash
