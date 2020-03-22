@@ -31,6 +31,7 @@ const mutations = {
         state.posts = [].concat(post);
       });
     });
+    state.posts.sort((a, b) => b - a);
   }
 };
 

@@ -54,18 +54,22 @@
   #post {
     background-color: #1d2021;
   }
+
   .content {
     color: #d5cda1;
   }
+
   #title {
     color: #fabd2f;
   }
+
   #tags {
     font-size: 13px;
     background-color: #3c3836;
     color: #d3869b;
   }
-  .content code {
+
+  .content pre code {
     background-color: #1d1d11;
   }
 </style>
