@@ -8,12 +8,13 @@
           <div id="cardTitle">{{ post.meta.title }}</div>
         </router-link>
       </v-card-title>
-      <v-card-text class="previewText" v-html="previewText(post.content)">
+      <v-card-text>
+        <div class="content" v-html="previewText(post.content)" />
         <router-link
           :to="{ name: 'posts', params: { postDate: post.meta.date } }"
           id="excerpt"
         >
-          More...
+          [...]
         </router-link>
       </v-card-text>
       <v-card-actions>
@@ -52,7 +53,7 @@
     color: #d3869b;
   }
 
-  .previewText {
+  .content {
     color: #d5cda1;
   }
 
@@ -71,10 +72,10 @@
   a {
     text-decoration: none;
   }
-  .previewText pre code {
+  .content pre code {
     background-color: #1d1d11;
   }
-  .previewText p code {
+  .content p code {
     background-color: #1d1d11;
   }
 </style>

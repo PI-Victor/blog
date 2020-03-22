@@ -3,7 +3,7 @@
     <v-card id="post">
       <v-card-title id="title">{{ title }}</v-card-title>
       <v-card-text>
-        <div class="content" v-html="renderContent()"></div>
+        <div class="content" v-html="renderContent()" />
       </v-card-text>
       <v-card-actions>
         <v-chip icon link id="tags" v-for="tag in tags" :key="tag">

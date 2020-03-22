@@ -26,12 +26,8 @@ const actions = {
 
 const mutations = {
   setPosts(state, payload) {
-    Promise.all(payload).then(posts => {
-      posts.map(post => {
-        state.posts = [].concat(post);
-      });
-    });
-    state.posts.sort((a, b) => b - a);
+    Promise.all(payload).then(posts => (state.posts = [].concat(posts)));
+    state.posts = state.posts.sort((a, b) => b.meta.date - a.meta.date);
   }
 };
 
