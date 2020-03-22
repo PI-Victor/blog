@@ -72,4 +72,7 @@
   .content pre code {
     background-color: #1d1d11;
   }
+  .content p code {
+    background-color: #1d1d11;
+  }
 </style>
