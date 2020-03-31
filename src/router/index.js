@@ -4,6 +4,8 @@ import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Post from "@/views/Post.vue";
 import Projects from "@/views/Projects";
+import Search from "@/views/Search";
+import NotFound from "@/views/NotFound";
 
 Vue.use(VueRouter);
 
@@ -41,6 +43,18 @@ export default new VueRouter({
       name: "posts",
       meta: { title: "Post" },
       component: Post
+    },
+    {
+      path: "/search",
+      name: "search",
+      meta: { title: "Search" },
+      component: Search,
+    },
+    {
+      path: "*",
+      name: "notfound",
+      meta: { title: "NotFound" },
+      component: NotFound,
     }
   ]
 });
