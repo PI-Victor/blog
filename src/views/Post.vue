@@ -16,63 +16,68 @@
 </template>
 
 <script>
-  import MarkdownIt from "markdown-it";
-  import { mapActions } from "vuex";
-  import highlightjs from "highlight.js";
-  import emoji from "markdown-it-emoji";
+import MarkdownIt from "markdown-it";
+import { mapGetters, mapActions } from "vuex";
+import highlightjs from "highlight.js";
+import emoji from "markdown-it-emoji";
 
-  export default {
-    data: () => ({
-      post: {},
-      title: "",
-      content: "",
-      tags: []
-    }),
-    computed: {},
-    methods: {
-      ...mapActions("posts", ["filterPost"]),
-      renderContent() {
-        const md = new MarkdownIt({
-          highlight: (code, language) =>
-            highlightjs.highlight(language, code).value
-        });
-        md.use(emoji);
-        return md.render(this.content);
-      }
-    },
-    beforeMount() {
-      const postDate = this.$route.params.postDate;
-      this.filterPost(postDate).then(post => {
-        this.content = post.content;
-        this.title = post.meta.title;
-        this.tags = post.meta.tags;
+export default {
+  data: () => ({
+    post: {},
+    title: "",
+    content: "",
+    tags: []
+  }),
+  computed: {
+    ...mapGetters("posts", ["posts"])
+  },
+  methods: {
+    ...mapActions("posts", ["filterPost", "getPosts"]),
+    renderContent() {
+      const md = new MarkdownIt({
+        highlight: (code, language) =>
+          highlightjs.highlight(language, code).value
       });
+      md.use(emoji);
+      return md.render(this.content);
     }
-  };
+  },
+  created() {
+    this.getPosts();
+  },
+  mounted() {
+    const postDate = this.$route.params.postDate;
+    this.filterPost(postDate).then(post => {
+      this.content = post.content;
+      this.title = post.meta.title;
+      this.tags = post.meta.tags;
+    });
+  }
+};
 </script>
 <style>
-  #post {
-    background-color: #1d2021;
-  }
+#post {
+  background-color: #1d2021;
+}
 
-  .content {
-    color: #d5cda1;
-  }
+.content {
+  color: #d5cda1;
+}
 
-  #title {
-    color: #fabd2f;
-  }
+#title {
+  color: #fabd2f;
+}
 
-  #tags {
-    font-size: 13px;
-    background-color: #3c3836;
-    color: #d3869b;
-  }
+#tags {
+  font-size: 13px;
+  background-color: #3c3836;
+  color: #d3869b;
+}
 
-  .content pre code {
-    background-color: #1d1d11;
-  }
-  .content p code {
-    background-color: #1d1d11;
-  }
+.content pre code {
+  background-color: #1d1d11;
+}
+.content p code {
+  background-color: #1d1d11;
+}
 </style>

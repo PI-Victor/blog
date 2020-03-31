@@ -15,37 +15,37 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from "vuex";
-  import Preview from "@/components/Preview";
+import { mapGetters, mapActions } from "vuex";
+import Preview from "@/components/Preview";
 
-  export default {
-    data: () => ({
-      page: 1
-    }),
-    components: {
-      Preview
+export default {
+  data: () => ({
+    page: 1
+  }),
+  components: {
+    Preview
+  },
+  computed: {
+    ...mapGetters("posts", ["posts"])
+  },
+  methods: {
+    ...mapActions("posts", ["getPosts"]),
+    nextPosts() {
+      const currentPage = this.page - 1;
+      return this.posts.slice(currentPage * 3, (currentPage + 1) * 3);
     },
-    computed: {
-      ...mapGetters("posts", ["posts"])
-    },
-    methods: {
-      ...mapActions("posts", ["getPosts"]),
-      nextPosts() {
-        const currentPage = this.page - 1;
-        return this.posts.slice(currentPage * 3, (currentPage + 1) * 3);
-      },
-      postsLength() {
-        return Math.floor(this.posts.length / 3);
-      }
-    },
-    beforeMount() {
-      this.getPosts();
+    postsLength() {
+      return Math.floor(this.posts.length / 3);
     }
-  };
+  },
+  created() {
+    this.getPosts();
+  }
+};
 </script>
 
 <style scoped>
-  .pagination:button {
-    background-color: green;
-  }
+.pagination:button {
+  background-color: green;
+}
 </style>
