@@ -1,83 +1,10 @@
 <template>
-  <v-container>
-    <v-card id="post">
-      <v-card-title id="title">{{ title }}</v-card-title>
-      <v-card-text>
-        <div class="content" v-html="renderContent()" />
-      </v-card-text>
-      <v-card-actions>
-        <v-chip icon link id="tags" v-for="tag in tags" :key="tag">
-          <v-icon color="#d65d0e" size="17px" left>mdi-label</v-icon>
-          {{ tag }}
-        </v-chip>
-      </v-card-actions>
-    </v-card>
-  </v-container>
+  <div />
 </template>
 
-<script>
-import MarkdownIt from "markdown-it";
-import { mapGetters, mapActions } from "vuex";
-import highlightjs from "highlight.js";
-import emoji from "markdown-it-emoji";
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 
-export default {
-  data: () => ({
-    post: {},
-    title: "",
-    content: "",
-    tags: []
-  }),
-  computed: {
-    ...mapGetters("posts", ["posts"])
-  },
-  methods: {
-    ...mapActions("posts", ["filterPost", "getPosts"]),
-    renderContent() {
-      const md = new MarkdownIt({
-        highlight: (code, language) =>
-          highlightjs.highlight(language, code).value
-      });
-      md.use(emoji);
-      return md.render(this.content);
-    }
-  },
-  created() {
-    this.getPosts();
-  },
-  mounted() {
-    const postDate = this.$route.params.postDate;
-    this.filterPost(postDate).then(post => {
-      this.content = post.content;
-      this.title = post.meta.title;
-      this.tags = post.meta.tags;
-    });
-  }
-};
+@Component
+export default class Post extends Vue {}
 </script>
-<style>
-#post {
-  background-color: #1d2021;
-}
-
-.content {
-  color: #d5cda1;
-}
-
-#title {
-  color: #fabd2f;
-}
-
-#tags {
-  font-size: 13px;
-  background-color: #3c3836;
-  color: #d3869b;
-}
-
-.content pre code {
-  background-color: #1d1d11;
-}
-.content p code {
-  background-color: #1d1d11;
-}
-</style>
